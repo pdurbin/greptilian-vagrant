@@ -56,6 +56,15 @@ class server1 {
     mode   => '0444',
   }
 
+  file { '/var/www/html/git-down':
+    ensure => directory;
+  }
+
+  file { '/var/www/html/git-down/index.html':
+    source  => 'puppet:///modules/server1/var/www/html/git-down/index.html',
+    require => File['/var/www/html/git-down'],
+  }
+
   file { '/etc/httpd/conf.d/git.greptilian.com.conf':
     source => 'puppet:///modules/server1/etc/httpd/conf.d/git.greptilian.com.conf',
     owner  => 'root',
