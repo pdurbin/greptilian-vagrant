@@ -72,6 +72,18 @@ class server1 {
     mode   => '0444',
   }
 
+  file { '/etc/httpd/conf.d/munin.greptilian.com.conf':
+    source => 'puppet:///modules/server1/etc/httpd/conf.d/munin.greptilian.com.conf',
+  }
+
+  file { '/etc/httpd/conf.d/munin.conf':
+    source => 'puppet:///modules/server1/etc/httpd/conf.d/munin.conf',
+  }
+
+  file { '/etc/munin/munin.conf':
+    source => 'puppet:///modules/server1/etc/munin/munin.conf',
+  }
+
   file { '/usr/sbin/server1-puppet-apply.sh':
     source => 'puppet:///modules/server1/usr/sbin/server1-puppet-apply.sh',
     owner  => 'root',

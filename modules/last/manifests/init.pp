@@ -13,6 +13,8 @@ class last {
       File['/etc/httpd/conf.d/welcome.conf'],
       File['/etc/httpd/conf.d/yum.greptilian.com.conf'],
       File['/etc/httpd/conf.d/git.greptilian.com.conf'],
+      File['/etc/httpd/conf.d/munin.greptilian.com.conf'],
+      File['/etc/httpd/conf.d/munin.conf'],
     ]
   }
 
@@ -20,6 +22,7 @@ class last {
   service { 'munin-node':
     ensure    => running,
     enable    => true,
+    subscribe => File['/etc/munin/munin.conf'],
   }
 
   service { 'crond':
