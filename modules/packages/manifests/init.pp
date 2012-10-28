@@ -16,6 +16,7 @@ class packages {
     'supybot-gribble',
     'munin',
     'munin-node',
+    'perl-YAML-LibYAML',
   ]
 
   package { $server1_packages:
