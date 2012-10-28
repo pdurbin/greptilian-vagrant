@@ -93,6 +93,19 @@ class server1 {
     source => 'puppet:///modules/server1/etc/munin/munin.conf',
   }
 
+  file { '/etc/httpd/conf.d/wiki.greptilian.com.conf':
+    source => 'puppet:///modules/server1/etc/httpd/conf.d/wiki.greptilian.com.conf',
+  }
+
+  file { '/var/www/wiki':
+    ensure => directory;
+  }
+
+  file { '/var/www/wiki/index.html':
+    source  => 'puppet:///modules/server1/var/www/wiki/index.html',
+    require => File['/var/www/wiki'],
+  }
+
   file { '/usr/sbin/server1-puppet-apply.sh':
     source => 'puppet:///modules/server1/usr/sbin/server1-puppet-apply.sh',
     owner  => 'root',
