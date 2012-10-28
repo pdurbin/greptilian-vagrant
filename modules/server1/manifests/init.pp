@@ -28,12 +28,9 @@ class server1 {
     mode   => '0444',
   }
 
-  #file { '/etc/yum.repos.d/greptilian.repo':
-  #  source => 'puppet:///modules/server1/etc/yum.repos.d/greptilian.repo',
-  #  owner  => 'root',
-  #  group  => 'root',
-  #  mode   => '0444',
-  #}
+  file { '/etc/yum.repos.d/greptilian.repo':
+    source => 'puppet:///modules/server1/etc/yum.repos.d/greptilian.repo',
+  }
 
   file { '/etc/httpd/conf.d/0greptilian.conf':
     source => 'puppet:///modules/server1/etc/httpd/conf.d/0greptilian.conf',
