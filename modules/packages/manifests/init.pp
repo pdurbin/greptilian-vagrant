@@ -1,3 +1,4 @@
+# install the packages
 class packages {
 
   $server1_packages = [
@@ -11,7 +12,6 @@ class packages {
     'createrepo',
     'httpd',
     'gitweb',
-#    'epel-release',
   ]
 
   package { $server1_packages:

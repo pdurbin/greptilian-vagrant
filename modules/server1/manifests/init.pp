@@ -1,3 +1,4 @@
+# config for server1.greptilian.com
 class server1 {
 
   #user { 'git':
