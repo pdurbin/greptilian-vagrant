@@ -12,6 +12,7 @@ class packages {
     'createrepo',
     'httpd',
     'gitweb',
+    'cronie',
   ]
 
   package { $server1_packages:

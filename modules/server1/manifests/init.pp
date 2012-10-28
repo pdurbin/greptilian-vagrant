@@ -79,4 +79,14 @@ class server1 {
     mode   => '0600',
   }
 
+  file { '/home/supybot/crimsonfubot.conf':
+    source => 'puppet:///modules/server1/home/supybot/crimsonfubot.conf',
+    owner  => 'supybot',
+  }
+
+  file { '/var/spool/cron/supybot' :
+    source => 'puppet:///modules/server1/var/spool/cron/supybot',
+    owner  => 'supybot',
+  }
+
 }

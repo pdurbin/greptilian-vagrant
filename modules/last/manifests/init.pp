@@ -15,4 +15,11 @@ class last {
     ]
   }
 
+  service { 'crond':
+    ensure => running,
+    subscribe => [
+      File['/var/spool/cron/supybot'],
+    ]
+  }
+
 }
