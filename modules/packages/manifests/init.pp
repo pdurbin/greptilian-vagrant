@@ -13,6 +13,7 @@ class packages {
     'httpd',
     'gitweb',
     'cronie',
+    'supybot-gribble',
   ]
 
   package { $server1_packages:
