@@ -7,6 +7,7 @@ class last {
 
   service { 'httpd':
     ensure    => running,
+    enable    => true,
     subscribe => [
       File['/etc/httpd/conf.d/0greptilian.conf'],
       File['/etc/httpd/conf.d/welcome.conf'],
