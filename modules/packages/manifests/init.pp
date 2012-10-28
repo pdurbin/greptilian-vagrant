@@ -14,6 +14,8 @@ class packages {
     'gitweb',
     'cronie',
     'supybot-gribble',
+    'munin',
+    'munin-node',
   ]
 
   package { $server1_packages:

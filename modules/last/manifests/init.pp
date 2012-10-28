@@ -16,6 +16,12 @@ class last {
     ]
   }
 
+  # FIXME: change to server1.greptilian.com with /etc/munin/munin.conf
+  service { 'munin-node':
+    ensure    => running,
+    enable    => true,
+  }
+
   service { 'crond':
     ensure => running,
     subscribe => [
