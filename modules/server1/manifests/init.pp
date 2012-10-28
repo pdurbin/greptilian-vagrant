@@ -78,12 +78,4 @@ class server1 {
     mode   => '0600',
   }
 
-  service { 'iptables':
-    ensure => running
-  }
-
-  service { 'httpd':
-    ensure => running
-  }
-
 }
