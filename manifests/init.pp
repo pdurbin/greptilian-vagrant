@@ -1,12 +1,17 @@
-stage { 'repos': before => Stage['packages'] }
+stage { 'repos':    before => Stage['packages'] }
 
-stage { 'packages': before => Stage['main'] }
+stage { 'packages': before => Stage['users'] }
 
-stage { 'last': require => Stage['main'] }
+stage { 'users':    before => Stage['main'] }
+
+stage { 'last':
+  require => Stage['main']
+}
 
 class {
-    'repos':  stage => repos;
+    'repos':    stage => repos;
     'packages': stage => packages;
-    'server1': stage => main;
-    'last': stage => last;
+    'users':    stage => users;
+    'server1':  stage => main;
+    'last':     stage => last;
 }
