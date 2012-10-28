@@ -56,6 +56,15 @@ class server1 {
     mode   => '0444',
   }
 
+  file { '/var/www/yum':
+    ensure => directory;
+  }
+
+  file { '/var/www/yum/index.html':
+    source  => 'puppet:///modules/server1/var/www/yum/index.html',
+    require => File['/var/www/yum'],
+  }
+
   file { '/var/www/html/git-down':
     ensure => directory;
   }
