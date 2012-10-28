@@ -4,3 +4,4 @@ baseurl=file:///var/www/yum
 gpgcheck=0
 enabled=0
 # git clone https://github.com/pdurbin/ikiwiki-rpms.git /var/www/yum
+# createrepo /var/www/yum
