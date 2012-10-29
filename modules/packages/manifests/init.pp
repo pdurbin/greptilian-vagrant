@@ -22,6 +22,7 @@ class packages {
     'perl-local-lib',
     'perl-YAML',
     'perl-Readonly',
+    'perl-Crypt-SSLeay',
   ]
 
   package { $server1_packages:
