@@ -32,3 +32,18 @@ We restart iptables so port 80 gets opened up... we shouldn't have to... since `
 
     notice: /Stage[last]/Last/Service[iptables]/ensure: ensure changed 'stopped' to 'running'
     notice: /Stage[last]/Last/Service[iptables]: Triggered 'refresh' from 1 events
+
+### Run some one off stuff I haven't put in Puppet yet
+
+#### Install ikiwiki
+
+    rm -rf /var/www/yum
+    git clone https://github.com/pdurbin/ikiwiki-rpms.git /var/www/yum
+    createrepo /var/www/yum
+    yum -y --enablerepo=greptilian install ikiwiki ikiwiki-discount-hack
+
+#### Stand up wiki.greptilian.com
+
+FIXME: I want the ikiwiki srcdir to be writable by pdurbin but for now only root can. At least this gets the wiki back up.
+
+    bash modules/server1/files/wikisetup

@@ -17,6 +17,7 @@ class packages {
     'munin',
     'munin-node',
     'perl-YAML-LibYAML',
+    'gcc',
   ]
 
   package { $server1_packages:
