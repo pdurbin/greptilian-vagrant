@@ -15,8 +15,7 @@ class server1 {
 
   file { '/var/lib/git':
     ensure => 'directory',
-    #owner  => 'pdurbin',
-    owner  => 'root',
+    owner  => 'pdurbin',
     group  => 'root',
     mode   => '0755',
   }
@@ -129,6 +128,21 @@ class server1 {
   file { '/usr/local/greptilian/sbin':
     ensure => directory,
     require => File['/usr/local/greptilian'],
+  }
+
+  file { '/usr/local/greptilian/bin':
+    ensure => directory,
+    require => File['/usr/local/greptilian'],
+  }
+
+  file { '/srv/wiki-srcdir':
+    ensure => directory,
+    owner  => 'pdurbin',
+  }
+
+  file { '/usr/local/greptilian/bin/wiki-setup':
+    source => 'puppet:///modules/server1/usr/local/greptilian/bin/wiki-setup',
+    require => File['/usr/local/greptilian/bin'],
   }
 
   file { '/usr/local/greptilian/sbin/supybot-setup' :

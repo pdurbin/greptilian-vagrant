@@ -1,6 +1,5 @@
 #!/bin/sh
 git clone --bare https://github.com/pdurbin/wiki.git /var/lib/git/wiki.git
-mkdir /srv/wiki-srcdir
 cd /srv/wiki-srcdir
 git init
 git remote add origin /var/lib/git/wiki.git
