@@ -21,3 +21,14 @@ As of this writing there's only server1.greptilian.com
     git submodule init
     git submodule update
     modules/server1/files/usr/sbin/server1-puppet-apply.sh
+
+### Apply post-provisioning fixes
+
+(These are bugs and shouldn't be necessary.)
+
+    service iptables restart
+
+We restart iptables so port 80 gets opened up... we shouldn't have to... since `iptables` is subscribed to `/etc/sysconfig/iptables` and a refresh is triggered:
+
+    notice: /Stage[last]/Last/Service[iptables]/ensure: ensure changed 'stopped' to 'running'
+    notice: /Stage[last]/Last/Service[iptables]: Triggered 'refresh' from 1 events
