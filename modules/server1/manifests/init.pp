@@ -105,12 +105,12 @@ class server1 {
   }
 
   file { '/usr/local/greptilian/sbin':
-    ensure => directory,
+    ensure  => directory,
     require => File['/usr/local/greptilian'],
   }
 
   file { '/usr/local/greptilian/bin':
-    ensure => directory,
+    ensure  => directory,
     require => File['/usr/local/greptilian'],
   }
 
@@ -120,17 +120,17 @@ class server1 {
   }
 
   file { '/usr/local/greptilian/bin/wiki-setup':
-    source => 'puppet:///modules/server1/usr/local/greptilian/bin/wiki-setup',
+    source  => 'puppet:///modules/server1/usr/local/greptilian/bin/wiki-setup',
     require => File['/usr/local/greptilian/bin'],
   }
 
   file { '/usr/local/greptilian/sbin/yum-setup':
-    source => 'puppet:///modules/server1/usr/local/greptilian/sbin/yum-setup',
+    source  => 'puppet:///modules/server1/usr/local/greptilian/sbin/yum-setup',
     require => File['/usr/local/greptilian/sbin'],
   }
 
   file { '/usr/local/greptilian/sbin/supybot-setup' :
-    source => 'puppet:///modules/server1/usr/local/greptilian/sbin/supybot-setup',
+    source  => 'puppet:///modules/server1/usr/local/greptilian/sbin/supybot-setup',
     require => File['/usr/local/greptilian/sbin'],
   }
 

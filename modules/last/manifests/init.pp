@@ -2,7 +2,7 @@
 class last {
 
   service { 'iptables':
-    ensure => running,
+    ensure    => running,
     subscribe => File['/etc/sysconfig/iptables'],
   }
 

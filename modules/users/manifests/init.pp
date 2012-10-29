@@ -14,7 +14,7 @@ class users {
   }
 
   user { 'supybot':
-    ensure => 'present',
+    ensure     => 'present',
     managehome => true,
   }
 
