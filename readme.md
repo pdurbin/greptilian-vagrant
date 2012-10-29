@@ -24,28 +24,23 @@ Here's how I configure a newly imaged production VM.
     cd greptilian-vagrant
     git submodule init
     git submodule update
-    modules/server1/files/usr/sbin/server1-puppet-apply.sh
+    modules/server1/files/usr/local/greptilian/sbin/greptilian-puppet-apply
 
 ### Run some one off stuff
 
-#### Enable supybot cron job
+#### Enable supybot cron job (as root)
 
     bash /usr/local/greptilian/sbin/supybot-setup
 
-#### Install ikiwiki
+#### Install ikiwiki via http://yum.greptilian.com (as root)
 
-    rm -rf /var/www/yum
-    git clone https://github.com/pdurbin/ikiwiki-rpms.git /var/www/yum
-    createrepo /var/www/yum
-    yum -y --enablerepo=greptilian install ikiwiki ikiwiki-discount-hack
+    bash /usr/local/greptilian/sbin/yum-setup 
 
-#### Stand up wiki.greptilian.com
+#### Set up http://wiki.greptilian.com (as pdurbin)
 
-FIXME: I want the ikiwiki srcdir to be writable by pdurbin but for now only root can. At least this gets the wiki back up.
+    bash /usr/local/greptilian/bin/wiki-setup 
 
-    bash modules/server1/files/wikisetup
-
-### Patch and reboot
+### Patch and reboot (as root)
 
     yum -y update && reboot
 

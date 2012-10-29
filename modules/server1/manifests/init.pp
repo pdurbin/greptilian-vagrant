@@ -52,15 +52,6 @@ class server1 {
     mode   => '0444',
   }
 
-  file { '/var/www/yum':
-    ensure => directory;
-  }
-
-  file { '/var/www/yum/index.html':
-    source  => 'puppet:///modules/server1/var/www/yum/index.html',
-    require => File['/var/www/yum'],
-  }
-
   file { '/var/www/html/git-down':
     ensure => directory;
   }
@@ -94,19 +85,16 @@ class server1 {
   }
 
   file { '/var/www/wiki':
-    ensure => directory;
+    ensure => directory,
+    owner  => 'pdurbin',
   }
 
-  file { '/var/www/wiki/index.html':
-    source  => 'puppet:///modules/server1/var/www/wiki/index.html',
-    require => File['/var/www/wiki'],
-  }
-
-  file { '/usr/sbin/server1-puppet-apply.sh':
-    source => 'puppet:///modules/server1/usr/sbin/server1-puppet-apply.sh',
-    owner  => 'root',
-    group  => 'root',
-    mode   => '0555',
+  file { '/usr/local/greptilian/sbin/greptilian-puppet-apply':
+    source  => 'puppet:///modules/server1/usr/local/greptilian/sbin/greptilian-puppet-apply',
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0744',
+    require => File['/usr/local/greptilian/sbin'],
   }
 
   file { '/etc/sysconfig/iptables':
@@ -143,6 +131,11 @@ class server1 {
   file { '/usr/local/greptilian/bin/wiki-setup':
     source => 'puppet:///modules/server1/usr/local/greptilian/bin/wiki-setup',
     require => File['/usr/local/greptilian/bin'],
+  }
+
+  file { '/usr/local/greptilian/sbin/yum-setup':
+    source => 'puppet:///modules/server1/usr/local/greptilian/sbin/yum-setup',
+    require => File['/usr/local/greptilian/sbin'],
   }
 
   file { '/usr/local/greptilian/sbin/supybot-setup' :
