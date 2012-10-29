@@ -110,10 +110,8 @@ class server1 {
     mode   => '0555',
   }
 
-  # http://docs.puppetlabs.com/references/stable/metaparameter.html#notify
   file { '/etc/sysconfig/iptables':
     source => 'puppet:///modules/server1/etc/sysconfig/iptables',
-    notify => Service['iptables'],
     owner  => 'root',
     group  => 'root',
     mode   => '0600',
