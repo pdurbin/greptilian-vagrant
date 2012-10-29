@@ -40,6 +40,12 @@ Here's how I configure a newly imaged production VM.
 
     bash /usr/local/greptilian/bin/wiki-setup 
 
+### pdurbin user setup
+
+    passwd pdurbin
+    ~pdurbin/.ssh/authorized_keys
+    git clone https://github.com/pdurbin/dotfiles.git
+
 ### Patch and reboot (as root)
 
     yum -y update && reboot
