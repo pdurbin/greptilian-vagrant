@@ -23,6 +23,11 @@ class packages {
     'perl-YAML',
     'perl-Readonly',
     'perl-Crypt-SSLeay',
+    'php',
+    'php-mysql',
+    'php-pdo',
+    'php-gd',
+    'mysql-server',
   ]
 
   package { $server1_packages:

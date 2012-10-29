@@ -16,6 +16,7 @@ class last {
       File['/etc/httpd/conf.d/git.greptilian.com.conf'],
       File['/etc/httpd/conf.d/munin.greptilian.com.conf'],
       File['/etc/httpd/conf.d/munin.conf'],
+      File['/etc/httpd/conf.d/thinkup.greptilian.com.conf'],
       File['/etc/httpd/conf.d/wiki.greptilian.com.conf'],
     ]
   }
@@ -24,6 +25,11 @@ class last {
     ensure    => running,
     enable    => true,
     subscribe => File['/etc/munin/munin.conf'],
+  }
+
+  service { 'mysqld':
+    ensure    => running,
+    enable    => true,
   }
 
 }

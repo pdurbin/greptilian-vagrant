@@ -45,6 +45,28 @@ class server1 {
     mode   => '0444',
   }
 
+  file { '/etc/httpd/conf.d/thinkup.greptilian.com.conf':
+    source => 'puppet:///modules/server1/etc/httpd/conf.d/thinkup.greptilian.com.conf',
+  }
+
+  file { '/var/www/thinkup':
+    ensure => directory,
+  }
+
+  file { '/var/www/thinkup/webapp':
+    ensure  => directory,
+    owner   => 'apache',
+    mode    => '0755',
+    require => File['/var/www/thinkup'],
+  }
+
+  file { '/var/www/thinkup/webapp/data/':
+    ensure  => directory,
+    require => File['/var/www/thinkup/webapp'],
+    owner   => 'apache',
+    mode    => '0755',
+  }
+
   file { '/etc/httpd/conf.d/yum.greptilian.com.conf':
     source => 'puppet:///modules/server1/etc/httpd/conf.d/yum.greptilian.com.conf',
     owner  => 'root',

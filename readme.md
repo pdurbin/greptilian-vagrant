@@ -46,6 +46,27 @@ Here's how I configure a newly imaged production VM.
     ~pdurbin/.ssh/authorized_keys
     git clone https://github.com/pdurbin/dotfiles.git
 
+### MySQL setup
+
+    /usr/bin/mysql_secure_installation
+
+### Setup for http://thinkup.greptilian.com
+
+    mysql -u root -p
+
+    create database thinkup;
+    grant all privileges on thinkup.* to 'thinkup'@'localhost' identified by 'REDACTED';
+    flush privileges;
+
+    rm -rf /var/www/thinkup
+    git clone https://github.com/ginatrapani/ThinkUp/ /var/www/thinkup
+
+FIXME: should probably pick a branch to run rather than "master".
+
+    /usr/local/greptilian/sbin/greptilian-puppet-apply
+
+http://thinkup.greptilian.com/install
+
 ### Patch and reboot (as root)
 
     yum -y update && reboot
