@@ -18,6 +18,10 @@ class packages {
     'munin-node',
     'perl-YAML-LibYAML',
     'gcc',
+    'perl-HTML-Tree',
+    'perl-local-lib',
+    'perl-YAML',
+    'perl-Readonly',
   ]
 
   package { $server1_packages:
