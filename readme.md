@@ -2,19 +2,22 @@
 
 As of this writing there's only server1.greptilian.com
 
-Note that git submodules are in use. An error and solution are below.
+## How to reprovision server1.greptilian.com
 
-    [root@localhost greptilian-vagrant]# server1-puppet-apply.sh 
-    Could not find class epel for localhost.localdomain at /root/greptilian-vagrant/modules/repos/manifests/init.pp:3 on node localhost.localdomain
-    [root@localhost greptilian-vagrant]# 
-    [root@localhost greptilian-vagrant]# git submodule init
-    Submodule 'modules/epel' (https://github.com/stahnma/puppet-module-epel.git) registered for path 'modules/epel'
-    [root@localhost greptilian-vagrant]# 
-    [root@localhost greptilian-vagrant]# git submodule update
-    Initialized empty Git repository in /root/greptilian-vagrant/modules/epel/.git/
-    remote: Counting objects: 54, done.
-    remote: Compressing objects: 100% (36/36), done.
-    remote: Total 54 (delta 20), reused 49 (delta 15)
-    Unpacking objects: 100% (54/54), done.
-    Submodule path 'modules/epel': checked out '4fc5b13bc3182af7348ce4878cdc882884c358cb'
-    [root@localhost greptilian-vagrant]# 
+### Restore from a snapshot and set the root password via console:
+
+    ssh -p 12345 console.v2s.org
+
+### Enable EPEL and install git and puppet
+
+    curl -O http://mirror.us.leaseweb.net/epel/6/i386/epel-release-6-7.noarch.rpm
+    yum -y install epel-release*
+    yum -y install git puppet
+
+### Clone this repo and run puppet
+
+    git clone https://github.com/pdurbin/greptilian-vagrant.git
+    cd greptilian-vagrant
+    git submodule init
+    git submodule update
+    modules/server1/files/usr/sbin/server1-puppet-apply.sh
