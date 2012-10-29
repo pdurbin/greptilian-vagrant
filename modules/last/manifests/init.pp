@@ -27,11 +27,4 @@ class last {
     subscribe => File['/etc/munin/munin.conf'],
   }
 
-  service { 'crond':
-    ensure => running,
-    subscribe => [
-      File['/var/spool/cron/supybot'],
-    ]
-  }
-
 }

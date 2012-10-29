@@ -33,7 +33,11 @@ We restart iptables so port 80 gets opened up... we shouldn't have to... since `
     notice: /Stage[last]/Last/Service[iptables]/ensure: ensure changed 'stopped' to 'running'
     notice: /Stage[last]/Last/Service[iptables]: Triggered 'refresh' from 1 events
 
-### Run some one off stuff I haven't put in Puppet yet
+### Run some one off stuff
+
+#### Enable supybot cron job
+
+    bash /usr/local/greptilian/sbin/supybot-setup
 
 #### Install ikiwiki
 

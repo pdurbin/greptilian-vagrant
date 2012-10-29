@@ -122,9 +122,18 @@ class server1 {
     owner  => 'supybot',
   }
 
-  file { '/var/spool/cron/supybot' :
-    source => 'puppet:///modules/server1/var/spool/cron/supybot',
-    owner  => 'supybot',
+  file { '/usr/local/greptilian':
+    ensure => directory,
+  }
+
+  file { '/usr/local/greptilian/sbin':
+    ensure => directory,
+    require => File['/usr/local/greptilian'],
+  }
+
+  file { '/usr/local/greptilian/sbin/supybot-setup' :
+    source => 'puppet:///modules/server1/usr/local/greptilian/sbin/supybot-setup',
+    require => File['/usr/local/greptilian/sbin'],
   }
 
 }

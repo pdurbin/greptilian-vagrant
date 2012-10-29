@@ -1,2 +1,0 @@
-# FIXME: ultimately, we'll want to enable this
-#@reboot screen -d -m supybot /home/supybot/crimsonfubot.conf

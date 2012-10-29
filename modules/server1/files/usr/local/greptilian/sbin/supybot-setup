@@ -1,0 +1,5 @@
+#!/bin/sh
+cron='@reboot screen -d -m supybot /home/supybot/crimsonfubot.conf'
+dest='/var/spool/cron/supybot'
+echo $cron > $dest
+chown supybot $dest
