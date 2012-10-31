@@ -13,6 +13,8 @@ By using Vagrant, I can quickly iterate on the Puppet configs for my home server
     vagrant up
     vagrant ssh
 
+http://localhost:8080 is where Vagrant will try to forward port 80.
+
 ### How to make changes to your own local server1.greptilian.com VM
 
     vim modules/server1/manifests/init.pp
@@ -20,7 +22,7 @@ By using Vagrant, I can quickly iterate on the Puppet configs for my home server
 
 ### How to shutdown or destroy your own local server1.greptilian.com VM
 
-    vagrant shutdown
+    vagrant halt
     vagrant destroy
 
 ### How to rebuild your own local server1.greptilian.com VM (after a destroy)
