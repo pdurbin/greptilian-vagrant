@@ -1,4 +1,5 @@
 # http://vagrantup.com/v1/docs/vagrantfile.html
+# # vi:ft=ruby:
 
 Vagrant::Config.run do |config|
   config.vm.box = "centos"
