@@ -2,7 +2,32 @@
 
 By using Vagrant, I can quickly iterate on the Puppet configs for my home server (server1.greptilian.com). Manifests are first applied to the Vagrant VM where bugs are worked out. Then changes are commited to this repo and applied to the production VM.
 
-## How to reprovision server1.greptilian.com
+## How to operate on a local server1.greptilian.com VM with Vagrant
+
+### How to start and ssh into your own local server1.greptilian.com VM
+
+    git clone https://github.com/pdurbin/greptilian-vagrant.git
+    cd greptilian-vagrant
+    git submodule init
+    git submodule update
+    vagrant up
+    vagrant ssh
+
+### How to make changes to your own local server1.greptilian.com VM
+
+    vim modules/server1/manifests/init.pp
+    vagrant provision
+
+### How to shutdown or destroy your own local server1.greptilian.com VM
+
+    vagrant shutdown
+    vagrant destroy
+
+### How to rebuild your own local server1.greptilian.com VM (after a destroy)
+
+    vagrant up
+
+## How to reprovision the production server1.greptilian.com
 
 Here's how I configure a newly imaged production VM.
 
