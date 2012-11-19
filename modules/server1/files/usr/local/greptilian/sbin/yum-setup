@@ -1,4 +1,4 @@
 #!/bin/sh
-git clone https://github.com/pdurbin/ikiwiki-rpms.git /var/www/yum
+git clone https://github.com/pdurbin/greptilian-yum.git /var/www/yum
 createrepo /var/www/yum
 yum -y --enablerepo=greptilian install ikiwiki ikiwiki-discount-hack
