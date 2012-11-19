@@ -106,6 +106,36 @@ class server1 {
     owner  => 'pdurbin',
   }
 
+  file { '/var/www/irclog':
+    ensure => directory,
+    owner  => 'root',
+  }
+
+  file { '/var/www/irclog/ilbot':
+    ensure  => directory,
+    require => File['/var/www/irclog'],
+  }
+
+  file { '/var/www/irclog/ilbot/cgi':
+    ensure  => directory,
+    require => File['/var/www/irclog/ilbot'],
+  }
+
+  file { '/var/www/irclog/ilbot/cgi/database.conf':
+    source  => 'puppet:///modules/server1/var/www/irclog/ilbot/cgi/database.conf',
+    require => File['/var/www/irclog/ilbot/cgi'],
+  }
+
+  file { '/var/www/irclog/ilbot/bot.conf':
+    source  => 'puppet:///modules/server1//var/www/irclog/ilbot/bot.conf',
+    require => File['/var/www/irclog/ilbot'],
+  }
+
+  file { '/var/www/irclog/ilbot/cgi/camelia.png':
+    source  => 'puppet:///modules/server1/var/www/irclog/ilbot/cgi/camelia.png',
+    require => File['/var/www/irclog/ilbot/cgi'],
+  }
+
   file { '/usr/local/greptilian/sbin/greptilian-puppet-apply':
     source  => 'puppet:///modules/server1/usr/local/greptilian/sbin/greptilian-puppet-apply',
     owner   => 'root',
@@ -158,6 +188,30 @@ class server1 {
   file { '/usr/local/greptilian/sbin/supybot-setup' :
     source  => 'puppet:///modules/server1/usr/local/greptilian/sbin/supybot-setup',
     require => File['/usr/local/greptilian/sbin'],
+  }
+
+  file { '/usr/share/perl5/vendor_perl/IrcLog.pm' :
+    source  => 'puppet:///modules/server1/usr/share/perl5/vendor_perl/IrcLog.pm',
+  }
+
+  file { '/usr/share/perl5/vendor_perl/IrcLog' :
+    ensure => directory,
+  }
+
+  file { '/usr/share/perl5/vendor_perl/IrcLog/WWW.pm' :
+    source  => 'puppet:///modules/server1/usr/share/perl5/vendor_perl/IrcLog/WWW.pm',
+    require => File['/usr/share/perl5/vendor_perl/IrcLog'],
+  }
+
+  class { 'mysql::server':
+    config_hash => { 'root_password' => 'foo' }
+  }
+
+  mysql::db { 'moritz5':
+    user     => 'moritz',
+    password => 'foo',
+    host     => 'localhost',
+    grant    => ['all'],
   }
 
 }

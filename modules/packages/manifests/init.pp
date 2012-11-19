@@ -27,7 +27,11 @@ class packages {
     'php-mysql',
     'php-pdo',
     'php-gd',
-    'mysql-server',
+    'perl-Regexp-Common',
+    'perl-Cache-Cache',
+    'perl-Calendar-Simple',
+    'perl-File-Slurp',
+    'perl-Date-Simple',
   ]
 
   package { $server1_packages:

@@ -28,9 +28,4 @@ class last {
     subscribe => File['/etc/munin/munin.conf'],
   }
 
-  service { 'mysqld':
-    ensure    => running,
-    enable    => true,
-  }
-
 }
