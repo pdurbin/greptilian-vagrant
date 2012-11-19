@@ -97,6 +97,10 @@ class server1 {
     source => 'puppet:///modules/server1/etc/httpd/conf.d/wiki.greptilian.com.conf',
   }
 
+  file { '/etc/httpd/conf.d/irclog.greptilian.com.conf':
+    source => 'puppet:///modules/server1/etc/httpd/conf.d/irclog.greptilian.com.conf',
+  }
+
   file { '/var/www/wiki':
     ensure => directory,
     owner  => 'pdurbin',
