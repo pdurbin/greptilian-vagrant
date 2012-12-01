@@ -19,6 +19,7 @@ class last {
       File['/etc/httpd/conf.d/thinkup.greptilian.com.conf'],
       File['/etc/httpd/conf.d/wiki.greptilian.com.conf'],
       File['/etc/httpd/conf.d/irclog.greptilian.com.conf'],
+      File['/etc/httpd/conf.d/data.greptilian.com.conf'],
     ]
   }
 
