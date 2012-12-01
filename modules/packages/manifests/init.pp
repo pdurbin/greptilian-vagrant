@@ -3,6 +3,7 @@ class packages {
 
   $server1_packages = [
     'git',
+    'ack',
     'bind-utils',
     'vim-enhanced',
     'screen',
