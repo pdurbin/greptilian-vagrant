@@ -234,6 +234,7 @@ class server1 {
 
   file { '/var/www/data' :
     ensure => directory,
+    mode   => '0755',
   }
 
 }
