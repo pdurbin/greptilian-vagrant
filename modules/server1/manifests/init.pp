@@ -228,6 +228,7 @@ class server1 {
   class { 'mysql::backup':
     backupuser     => 'mysqldump',
     backuppassword => 'foo',
+    # FIXME: ran chmod 755 /var/www/data/mysql
     backupdir      => '/var/www/data/mysql',
     require        => File['/var/www/data'],
   }
