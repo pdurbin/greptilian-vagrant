@@ -214,4 +214,15 @@ class server1 {
     grant    => ['all'],
   }
 
+  class { 'mysql::backup':
+    backupuser     => 'mysqldump',
+    backuppassword => 'foo',
+    backupdir      => '/var/www/data/mysql',
+    require        => File['/var/www/data'],
+  }
+
+  file { '/var/www/data' :
+    ensure => directory,
+  }
+
 }
