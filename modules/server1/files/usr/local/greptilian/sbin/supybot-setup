@@ -1,5 +1,8 @@
 #!/bin/sh
-cron='@reboot screen -d -m supybot /home/supybot/crimsonfubot.conf'
+cron1='@reboot screen -d -m supybot /home/supybot/crimsonfubot.conf'
+# FIXME: ilbot has nothing to do with supybot...
+cron2='@reboot screen -d -m bash /usr/local/greptilian/bin/philbot'
 dest='/var/spool/cron/supybot'
-echo $cron > $dest
+echo $cron1 > $dest
+echo $cron2 >> $dest
 chown supybot $dest

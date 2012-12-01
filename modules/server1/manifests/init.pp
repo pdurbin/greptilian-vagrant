@@ -141,6 +141,12 @@ class server1 {
     require => File['/var/www/irclog/ilbot/cgi'],
   }
 
+  file { '/usr/local/greptilian/bin/philbot':
+    source  => 'puppet:///modules/server1/usr/local/greptilian/bin/philbot',
+    require => File['/usr/local/greptilian/bin'],
+    mode    => '0644',
+  }
+
   file { '/usr/local/greptilian/sbin/greptilian-puppet-apply':
     source  => 'puppet:///modules/server1/usr/local/greptilian/sbin/greptilian-puppet-apply',
     owner   => 'root',
