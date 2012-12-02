@@ -33,6 +33,9 @@ class packages {
     'perl-Calendar-Simple',
     'perl-File-Slurp',
     'perl-Date-Simple',
+    'yum-utils',
+    'perl-JSON',
+    'python-simplejson',
   ]
 
   package { $server1_packages:
