@@ -147,6 +147,12 @@ class server1 {
     mode    => '0644',
   }
 
+  file { '/usr/local/greptilian/bin/greptilian-backup-offsite':
+    source  => 'puppet:///modules/server1/usr/local/greptilian/bin/greptilian-backup-offsite',
+    require => File['/usr/local/greptilian/bin'],
+    mode    => '0755',
+  }
+
   file { '/usr/local/greptilian/sbin/greptilian-puppet-apply':
     source  => 'puppet:///modules/server1/usr/local/greptilian/sbin/greptilian-puppet-apply',
     owner   => 'root',
