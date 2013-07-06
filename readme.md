@@ -35,8 +35,6 @@ Here's how I configure a newly imaged production VM.
 
 ### Restore baseline image from a snapshot
 
-    ssh -p 12345 console.v2s.org
-
 (I reset the root password as well.)
 
 ### Enable EPEL and install git and puppet
