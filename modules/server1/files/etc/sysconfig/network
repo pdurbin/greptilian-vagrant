@@ -1,3 +1,0 @@
-NETWORKING=yes
-HOSTNAME=server1.greptilian.com
-GATEWAY=72.93.243.1
