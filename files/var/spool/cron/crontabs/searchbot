@@ -1,0 +1,1 @@
+@reboot tmux new-session -d -s searchbotsession 'supybot /home/searchbot/searchbot.conf'
