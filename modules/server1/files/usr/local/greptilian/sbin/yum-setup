@@ -1,4 +1,0 @@
-#!/bin/sh
-git clone https://github.com/pdurbin/greptilian-yum.git /var/www/yum
-createrepo /var/www/yum
-yum -y --enablerepo=greptilian install ikiwiki ikiwiki-discount-hack perl-Bot-BasicBot perl-Config-File perl-POE-Component-Syndicator perl-Text-Table

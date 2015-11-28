@@ -1,5 +1,0 @@
-[greptilian]
-name=greptilian
-baseurl=file:///var/www/yum
-gpgcheck=0
-enabled=0

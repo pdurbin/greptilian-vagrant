@@ -1,0 +1,2 @@
+@daily /var/www/podcasts.greptilian.com/go.sh
+@daily mysql -u mysqldump -pfoo moritz5 -e 'SELECT * FROM irclog;' > /var/www/data/mysql/irclog/irclog.tsv

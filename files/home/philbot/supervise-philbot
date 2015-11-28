@@ -1,0 +1,8 @@
+#!/bin/sh
+#echo_supervisord_conf > supervisord.conf # one-time
+supervisord
+supervisorctl status
+supervisorctl maintail
+#supervisorctl help
+#supervisorctl stop all
+#supervisorctl shutdown

@@ -1,18 +1,17 @@
-# http://vagrantup.com/v1/docs/vagrantfile.html
 # # vi:ft=ruby:
 
-Vagrant::Config.run do |config|
-  config.vm.box = "centos"
-  config.vm.box_url = "https://dl.dropbox.com/u/7225008/Vagrant/CentOS-6.3-x86_64-minimal.box"
+VAGRANTFILE_API_VERSION = "2"
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
-  config.vm.network :hostonly, "33.33.33.10"
-  config.vm.forward_port 80, 9999
+  config.vm.box = "ubuntu/trusty64"
+  config.vm.box_url = "https://atlas.hashicorp.com/ubuntu/boxes/trusty64/versions/20150928.0.0/providers/virtualbox.box"
 
-  config.vm.customize ["modifyvm", :id, "--memory", 1024]
+  config.vm.network "forwarded_port", guest: 80, host: 9999
 
-  config.vm.provision :puppet do |puppet|
-    puppet.manifests_path = "manifests"
-    puppet.module_path = "modules"
-    puppet.manifest_file  = "init.pp"
+  config.vm.provider "virtualbox" do |vb|
+    vb.customize ["modifyvm", :id, "--memory", "512"]
   end
+  #config.vm.provision "shell", path: "go.sh"
+  config.vm.synced_folder ".", "/greptilian"
+
 end

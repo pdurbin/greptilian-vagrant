@@ -1,3 +1,0 @@
-#!/bin/sh
-chmod 755 /var/www/data/mysql
-rsync -av --delete /var/www/data pdurbin@collab.or8.net:public_html
