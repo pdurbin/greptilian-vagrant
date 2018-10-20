@@ -1,1 +1,2 @@
-@reboot /home/philbot/supervise-philbot
+#@reboot /home/philbot/supervise-philbot
+@reboot /usr/bin/screen -d -m bash -c '/home/philbot/launch-philbot; exec bash'
