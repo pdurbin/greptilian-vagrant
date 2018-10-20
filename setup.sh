@@ -7,7 +7,8 @@ if [ -f $HAS_BEEN_SETUP ]; then
 fi
 echo "doing setup"
 export DEBIAN_FRONTEND=noninteractive
-apt-get -y install git apache2 mysql-server ikiwiki supybot libconfig-file-perl libregexp-common-perl libcache-cache-perl libdate-simple-perl libfile-slurp-perl libcalendar-simple-perl libbot-basicbot-perl
+apt-get update
+apt-get -y install git apache2 mysql-server ikiwiki supybot libconfig-file-perl libregexp-common-perl libcache-cache-perl libdate-simple-perl libfile-slurp-perl libcalendar-simple-perl libbot-basicbot-perl libdbd-mysql-perl
 /etc/init.d/mysql start
 # setup mysql
 mysqladmin -u root password root
@@ -17,7 +18,7 @@ mysqladmin -u root password root
 mysql -u root -proot -e 'create database moritz5;'
 mysql -u root -proot -e "grant all privileges on moritz5.* to 'moritz'@'localhost' identified by 'foo';"
 mysql -u root -proot -e 'flush privileges;'
-LATEST_MYSQL_BACKUP=mysql_backup_20151114-230501.sql
+LATEST_MYSQL_BACKUP=mysql_backup_20181019-230501.sql
 wget http://data.greptilian.com/mysql/${LATEST_MYSQL_BACKUP}.bz2
 bunzip2 ${LATEST_MYSQL_BACKUP}.bz2
 cat $LATEST_MYSQL_BACKUP | mysql -u root -proot moritz5
