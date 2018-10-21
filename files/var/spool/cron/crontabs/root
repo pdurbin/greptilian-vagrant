@@ -1,1 +1,2 @@
 5 23 * * * /usr/local/sbin/mysqlbackup.sh
+@daily mysql -u mysqldump -pfoo moritz5 -e 'SELECT * FROM irclog;' > /var/www/data/mysql/irclog/irclog.tsv
