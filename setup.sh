@@ -8,7 +8,7 @@ fi
 echo "doing setup"
 export DEBIAN_FRONTEND=noninteractive
 apt-get update
-apt-get -y install git apache2 mysql-server ikiwiki supybot libconfig-file-perl libregexp-common-perl libcache-cache-perl libdate-simple-perl libfile-slurp-perl libcalendar-simple-perl libbot-basicbot-perl libdbd-mysql-perl
+apt-get -y install git apache2 mysql-server ikiwiki libconfig-file-perl libregexp-common-perl libcache-cache-perl libdate-simple-perl libfile-slurp-perl libcalendar-simple-perl libbot-basicbot-perl libdbd-mysql-perl
 /etc/init.d/mysql start
 # setup mysql
 mysqladmin -u root password root
