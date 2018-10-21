@@ -26,10 +26,10 @@ wget http://data.greptilian.com/mysql/${LATEST_MYSQL_BACKUP}.bz2
 bunzip2 ${LATEST_MYSQL_BACKUP}.bz2
 cat $LATEST_MYSQL_BACKUP | mysql -u root -proot moritz5
 
-mkdir /var/www/irclog.greptilian.com
+cd /var/www
+git clone https://github.com/pdurbin/philbot.git irclog.greptilian.com
+#chown pdurbin:pdurbin /var/www/irclog.greptilian.com
 cd /var/www/irclog.greptilian.com
-git clone https://github.com/pdurbin/philbot.git
-cd philbot
 cp -a bot.conf bot.conf.orig
 cp /greptilian/files/var/www/irclog.greptilian.com/bot.conf .
 # configure bot for testing
@@ -37,11 +37,10 @@ cp /greptilian/files/var/www/irclog.greptilian.com/bot.conf .
 # ./ilbot2.pl # quick test
 mkdir /usr/local/lib/site_perl
 mkdir /usr/local/lib/site_perl/IrcLog
-cp /var/www/irclog.greptilian.com/philbot/lib/IrcLog.pm /usr/local/lib/site_perl/IrcLog.pm
-cp /var/www/irclog.greptilian.com/philbot/lib/IrcLog/WWW.pm /usr/local/lib/site_perl/IrcLog/WWW.pm
-# use /var/www/irclog.greptilian.com/philbot/database.conf in /usr/local/lib/site_perl/IrcLog.pm
-cp /var/www/irclog.greptilian.com/philbot/database.conf /var/www/irclog.greptilian.com/philbot/cgi/database.conf
-# /var/www/irclog.greptilian.com/cgi vs. /var/www/irclog.greptilian.com/philbot/cgi
+cp /var/www/irclog.greptilian.com/lib/IrcLog.pm /usr/local/lib/site_perl/IrcLog.pm
+cp /var/www/irclog.greptilian.com/lib/IrcLog/WWW.pm /usr/local/lib/site_perl/IrcLog/WWW.pm
+cp /var/www/irclog.greptilian.com/database.conf /var/www/irclog.greptilian.com/cgi/database.conf
+
 a2enmod cgi
 a2enmod rewrite
 a2enmod headers
