@@ -44,9 +44,18 @@ cp /var/www/irclog.greptilian.com/philbot/database.conf /var/www/irclog.greptili
 # /var/www/irclog.greptilian.com/cgi vs. /var/www/irclog.greptilian.com/philbot/cgi
 a2enmod cgi
 a2enmod rewrite
+a2enmod headers
 # cp -a /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf.`date +'%s'`
 # cp /greptilian/irclog.greptilian.com.conf /etc/apache2/sites-available/000-default.conf
 service apache2 restart
+
+apt-get -y install munin
+mkdir /var/www/munin.greptilian.com
+chown munin:munin /var/www/munin.greptilian.com
+cp -a /etc/munin/munin.conf /etc/munin/munin.conf.`date +'%s'`
+cp /greptilian/files/etc/munin/munin.conf /etc/munin/munin.conf
+/etc/init.d/munin-node restart
+
 
 #./index.pl
 touch $HAS_BEEN_SETUP
