@@ -56,6 +56,8 @@ cp -a /etc/munin/munin.conf /etc/munin/munin.conf.`date +'%s'`
 cp /greptilian/files/etc/munin/munin.conf /etc/munin/munin.conf
 /etc/init.d/munin-node restart
 
+# configure gitweb
+cp /greptilian/files/etc/gitweb.conf /etc
 
 #./index.pl
 touch $HAS_BEEN_SETUP
