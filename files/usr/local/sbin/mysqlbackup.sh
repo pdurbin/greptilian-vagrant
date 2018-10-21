@@ -21,3 +21,5 @@ find $DIR -mtime +30 -exec rm -f {} \;
 mysqldump -u${USER} -p${PASS} --opt --flush-logs --single-transaction \
  --all-databases | bzcat -zc > ${DIR}/mysql_backup_`date +%Y%m%d-%H%M%S`.sql.bz2
 
+mysqldump -u${USER} -p${PASS} --opt --flush-logs --single-transaction \
+ moritz5 | bzcat -zc > ${DIR}/mysql_backup_irclog_`date +%Y%m%d-%H%M%S`.sql.bz2

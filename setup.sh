@@ -17,6 +17,7 @@ mysqladmin -u root password root
 #PASSWORD = foo
 mysql -u root -proot -e 'create database moritz5;'
 mysql -u root -proot -e "grant all privileges on moritz5.* to 'moritz'@'localhost' identified by 'foo';"
+mysql -u root -proot -e "grant lock tables,select,reload on *.* to 'mysqldump'@'localhost' identified by 'foo';"
 mysql -u root -proot -e 'flush privileges;'
 # just the irclog database or else mysql won't restart after boot
 #LATEST_MYSQL_BACKUP=mysql_backup_20181019-230501.sql
