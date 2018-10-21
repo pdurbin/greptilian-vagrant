@@ -1,2 +1,5 @@
-@daily /var/www/podcasts.greptilian.com/go.sh
+10 23 * * * rsync -av --delete /var/www/data pdurbin@collab.or8.net:public_html/server3
 @daily mysql -u mysqldump -pfoo moritz5 -e 'SELECT * FROM irclog;' > /var/www/data/mysql/irclog/irclog.tsv
+@daily cd /home/pdurbin/feedcritic && make all DIR=/var/www/podcasts.greptilian.com TSV=/var/www/wiki/podcasts/podcasts.tsv
+#@daily /var/www/html/tmp/haunts/tab2json /var/www/wiki/haunts/haunts.tsv | jq . > /var/www/api.greptilian.com/haunts.json
+#@daily cp /home/nexus5/antennapod-feeds.opml /home/pdurbin/feedcritic/antennapod-feeds.opml
