@@ -1,0 +1,2 @@
+#!/bin/bash
+cd /var/www/irclog.greptilian.com/philbot && ./ilbot2.pl
