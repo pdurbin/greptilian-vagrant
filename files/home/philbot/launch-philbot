@@ -1,4 +1,0 @@
-#!/bin/bash
-# give mysql time to start
-sleep 20
-cd /var/www/irclog.greptilian.com && ./ilbot2.pl
